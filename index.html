@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Premier League Stats</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Fantasy Premier League Stats & Analysis</h1>
+            <p class="subtitle">Player statistics and expected values based on last 4 games of current season</p>
+        </header>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading FPL data...</p>
+        </div>
+
+        <div class="dashboard" id="dashboard" style="display: none;">
+            <div class="controls">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search players..." class="search-input">
+                </div>
+                <div class="position-tabs">
+                    <button class="tab-button active" data-position="Goalkeepers">Goalkeepers</button>
+                    <button class="tab-button" data-position="Defenders">Defenders</button>
+                    <button class="tab-button" data-position="Midfielders">Midfielders</button>
+                    <button class="tab-button" data-position="Attackers">Attackers</button>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="position-section active" id="Goalkeepers">
+                    <h2>Goalkeepers</h2>
+                    <div class="table-wrapper">
+                        <table class="stats-table" id="goalkeepers-table">
+                            <thead>
+                                <tr>
+                                    <th data-sort="rank">Rank</th>
+                                    <th data-sort="name">Player Name</th>
+                                    <th data-sort="xa">xA</th>
+                                    <th data-sort="xgc">xGC</th>
+                                    <th data-sort="bp">BP</th>
+                                    <th data-sort="minutes">Minutes</th>
+                                    <th data-sort="saves">Avg Saves</th>
+                                    <th data-sort="xppg">xPPG</th>
+                                    <th data-sort="points">Points</th>
+                                    <th data-sort="price">Price (£)</th>
+                                    <th data-sort="value">Value</th>
+                                    <th data-sort="xvalue">xValue</th>
+                                    <th data-sort="pfdr">pFDR</th>
+                                    <th data-sort="ffdr">fFDR</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="position-section" id="Defenders">
+                    <h2>Defenders</h2>
+                    <div class="table-wrapper">
+                        <table class="stats-table" id="defenders-table">
+                            <thead>
+                                <tr>
+                                    <th data-sort="rank">Rank</th>
+                                    <th data-sort="name">Player Name</th>
+                                    <th data-sort="xg">xG</th>
+                                    <th data-sort="xa">xA</th>
+                                    <th data-sort="xgc">xGC</th>
+                                    <th data-sort="bp">BP</th>
+                                    <th data-sort="minutes">Minutes</th>
+                                    <th data-sort="xppg">xPPG</th>
+                                    <th data-sort="points">Points</th>
+                                    <th data-sort="price">Price (£)</th>
+                                    <th data-sort="value">Value</th>
+                                    <th data-sort="xvalue">xValue</th>
+                                    <th data-sort="pfdr">pFDR</th>
+                                    <th data-sort="ffdr">fFDR</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="position-section" id="Midfielders">
+                    <h2>Midfielders</h2>
+                    <div class="table-wrapper">
+                        <table class="stats-table" id="midfielders-table">
+                            <thead>
+                                <tr>
+                                    <th data-sort="rank">Rank</th>
+                                    <th data-sort="name">Player Name</th>
+                                    <th data-sort="xg">xG</th>
+                                    <th data-sort="xa">xA</th>
+                                    <th data-sort="xgc">xGC</th>
+                                    <th data-sort="bp">BP</th>
+                                    <th data-sort="minutes">Minutes</th>
+                                    <th data-sort="xppg">xPPG</th>
+                                    <th data-sort="points">Points</th>
+                                    <th data-sort="price">Price (£)</th>
+                                    <th data-sort="value">Value</th>
+                                    <th data-sort="xvalue">xValue</th>
+                                    <th data-sort="pfdr">pFDR</th>
+                                    <th data-sort="ffdr">fFDR</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="position-section" id="Attackers">
+                    <h2>Attackers</h2>
+                    <div class="table-wrapper">
+                        <table class="stats-table" id="attackers-table">
+                            <thead>
+                                <tr>
+                                    <th data-sort="rank">Rank</th>
+                                    <th data-sort="name">Player Name</th>
+                                    <th data-sort="xg">xG</th>
+                                    <th data-sort="xa">xA</th>
+                                    <th data-sort="bp">BP</th>
+                                    <th data-sort="minutes">Minutes</th>
+                                    <th data-sort="xppg">xPPG</th>
+                                    <th data-sort="points">Points</th>
+                                    <th data-sort="price">Price (£)</th>
+                                    <th data-sort="value">Value</th>
+                                    <th data-sort="xvalue">xValue</th>
+                                    <th data-sort="pfdr">pFDR</th>
+                                    <th data-sort="ffdr">fFDR</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Data sourced from Fantasy Premier League API | Last updated: <span id="lastUpdated"></span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
