@@ -1,6 +1,6 @@
 # FPL Dashboard Project
 
-A modern web application that displays Fantasy Premier League player statistics including xG, xA, Points, Price and fixture difficulty ratings. With the main goal of predicting their future value (xValue - Expected Points/Price) based off of these statistics.
+A modern web application that displays Fantasy Premier League player statistics including xG, xA, Points, Price and fixture difficulty ratings. With the main goal of predicting their future value (xValue - Expected Points/Price) based off of these statistics. Webiste link:https://fpl-stats-a10fe9ee4f83.herokuapp.com/
 
 ##  Project Structure
 
