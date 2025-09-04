@@ -389,6 +389,19 @@ class FPLDashboard {
                 this.sortTable(column);
             });
         });
+
+        // Stats key toggle
+        const toggleStatsKeyBtn = document.getElementById('toggleStatsKey');
+        const closeStatsKeyBtn = document.getElementById('closeStatsKey');
+        const statsKey = document.getElementById('statsKey');
+
+        toggleStatsKeyBtn.addEventListener('click', () => {
+            this.toggleStatsKey();
+        });
+
+        closeStatsKeyBtn.addEventListener('click', () => {
+            this.hideStatsKey();
+        });
     }
 
     switchPosition(position) {
@@ -545,6 +558,36 @@ class FPLDashboard {
             });
             document.getElementById('lastUpdated').textContent = timeString;
         }
+    }
+
+    toggleStatsKey() {
+        const statsKey = document.getElementById('statsKey');
+        const toggleBtn = document.getElementById('toggleStatsKey');
+        
+        if (statsKey.style.display === 'none' || statsKey.style.display === '') {
+            this.showStatsKey();
+        } else {
+            this.hideStatsKey();
+        }
+    }
+
+    showStatsKey() {
+        const statsKey = document.getElementById('statsKey');
+        const toggleBtn = document.getElementById('toggleStatsKey');
+        
+        statsKey.style.display = 'block';
+        toggleBtn.textContent = '📊 Hide Stats Key';
+        
+        // Smooth scroll to the key
+        statsKey.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    hideStatsKey() {
+        const statsKey = document.getElementById('statsKey');
+        const toggleBtn = document.getElementById('toggleStatsKey');
+        
+        statsKey.style.display = 'none';
+        toggleBtn.textContent = '📊 Show Stats Key';
     }
 }
 

@@ -30,6 +30,106 @@
                     <button class="tab-button" data-position="Midfielders">Midfielders</button>
                     <button class="tab-button" data-position="Attackers">Attackers</button>
                 </div>
+                <div class="stats-key-toggle">
+                    <button id="toggleStatsKey" class="key-toggle-btn">📊 Show Stats Key</button>
+                </div>
+            </div>
+
+            <div class="stats-key" id="statsKey" style="display: none;">
+                <div class="key-header">
+                    <h3>📊 Statistics Key</h3>
+                    <button id="closeStatsKey" class="close-key-btn">✕</button>
+                </div>
+                
+                <div class="key-content">
+                    <div class="key-section">
+                        <h4>📈 Core Statistics (Based on Last 4 Games)</h4>
+                        <div class="key-grid">
+                            <div class="key-item">
+                                <strong>xG:</strong> Expected Goals - Statistical likelihood of scoring based on shot quality and position
+                            </div>
+                            <div class="key-item">
+                                <strong>xA:</strong> Expected Assists - Statistical likelihood of creating goals based on pass quality and position
+                            </div>
+                            <div class="key-item">
+                                <strong>xGC:</strong> Expected Goals Conceded - Statistical likelihood of conceding goals (Goalkeepers/Defenders only)
+                            </div>
+                            <div class="key-item">
+                                <strong>BP:</strong> Bonus Points - Average bonus points earned per game
+                            </div>
+                            <div class="key-item">
+                                <strong>Minutes:</strong> Average minutes played per game
+                            </div>
+                            <div class="key-item">
+                                <strong>Avg Saves:</strong> Average saves per game (Goalkeepers only)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-section">
+                        <h4>🎯 Predicted Performance</h4>
+                        <div class="key-grid">
+                            <div class="key-item">
+                                <strong>xPPG:</strong> Expected Points Per Game - Predicted FPL points based on expected stats and position-specific scoring
+                            </div>
+                            <div class="key-item">
+                                <strong>Points:</strong> Actual average FPL points per game from last 4 games
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-section">
+                        <h4>💰 Value Analysis</h4>
+                        <div class="key-grid">
+                            <div class="key-item">
+                                <strong>Price:</strong> Current FPL price in millions (£)
+                            </div>
+                            <div class="key-item">
+                                <strong>Value (Pts/£):</strong> Actual points per game divided by price - measures current value for money
+                            </div>
+                            <div class="key-item">
+                                <strong>xValue (Pts/£):</strong> Expected points per game divided by price - measures predicted value for money
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-section">
+                        <h4>🏟️ Fixture Difficulty Rating (FDR)</h4>
+                        <div class="key-grid">
+                            <div class="key-item">
+                                <strong>pFDR:</strong> Past Fixture Difficulty Rating - Average difficulty of last 4 fixtures (1=easiest, 5=hardest)
+                            </div>
+                            <div class="key-item">
+                                <strong>fFDR:</strong> Future Fixture Difficulty Rating - Average difficulty of next 4 fixtures (1=easiest, 5=hardest)
+                            </div>
+                        </div>
+                        <div class="fdr-legend">
+                            <span class="fdr-sample fdr-excellent">1-2 Excellent</span>
+                            <span class="fdr-sample fdr-good">2-3 Good</span>
+                            <span class="fdr-sample fdr-average">3-4 Average</span>
+                            <span class="fdr-sample fdr-difficult">4-5 Difficult</span>
+                        </div>
+                    </div>
+
+
+                    <div class="key-section">
+                        <h4>🎨 Color Coding</h4>
+                        <div class="color-legend">
+                            <div class="color-item">
+                                <span class="color-sample value-high"></span>
+                                <span>High Value (≥0.7 Pts/£)</span>
+                            </div>
+                            <div class="color-item">
+                                <span class="color-sample value-medium"></span>
+                                <span>Medium Value (0.4-0.7 Pts/£)</span>
+                            </div>
+                            <div class="color-item">
+                                <span class="color-sample value-low"></span>
+                                <span>Low Value (<0.4 Pts/£)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="table-container">
@@ -49,8 +149,8 @@
                                     <th data-sort="xppg">xPPG</th>
                                     <th data-sort="points">Points</th>
                                     <th data-sort="price">Price (£)</th>
-                                    <th data-sort="value">Value</th>
-                                    <th data-sort="xvalue">xValue</th>
+                                    <th data-sort="value">Value (Pts/£)</th>
+                                    <th data-sort="xvalue">xValue (Pts/£)</th>
                                     <th data-sort="pfdr">pFDR</th>
                                     <th data-sort="ffdr">fFDR</th>
                                 </tr>
@@ -76,8 +176,8 @@
                                     <th data-sort="xppg">xPPG</th>
                                     <th data-sort="points">Points</th>
                                     <th data-sort="price">Price (£)</th>
-                                    <th data-sort="value">Value</th>
-                                    <th data-sort="xvalue">xValue</th>
+                                    <th data-sort="value">Value (Pts/£)</th>
+                                    <th data-sort="xvalue">xValue (Pts/£)</th>
                                     <th data-sort="pfdr">pFDR</th>
                                     <th data-sort="ffdr">fFDR</th>
                                 </tr>
@@ -103,8 +203,8 @@
                                     <th data-sort="xppg">xPPG</th>
                                     <th data-sort="points">Points</th>
                                     <th data-sort="price">Price (£)</th>
-                                    <th data-sort="value">Value</th>
-                                    <th data-sort="xvalue">xValue</th>
+                                    <th data-sort="value">Value (Pts/£)</th>
+                                    <th data-sort="xvalue">xValue (Pts/£)</th>
                                     <th data-sort="pfdr">pFDR</th>
                                     <th data-sort="ffdr">fFDR</th>
                                 </tr>
@@ -129,8 +229,8 @@
                                     <th data-sort="xppg">xPPG</th>
                                     <th data-sort="points">Points</th>
                                     <th data-sort="price">Price (£)</th>
-                                    <th data-sort="value">Value</th>
-                                    <th data-sort="xvalue">xValue</th>
+                                    <th data-sort="value">Value (Pts/£)</th>
+                                    <th data-sort="xvalue">xValue (Pts/£)</th>
                                     <th data-sort="pfdr">pFDR</th>
                                     <th data-sort="ffdr">fFDR</th>
                                 </tr>
