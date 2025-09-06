@@ -181,7 +181,3 @@ heroku logs --app fpl-stats | grep "Processing took"
 - **API response time**: Should be under 5 seconds
 - **Cache hit rate**: Most requests should use cached data
 
-## Contact Information
-- **Heroku Dashboard**: https://dashboard.heroku.com/apps/fpl-stats
-- **GitHub Repository**: https://github.com/Montydawson/FPL.git
-- **Live Website**: https://fpl-stats-a10fe9ee4f83.herokuapp.com/
